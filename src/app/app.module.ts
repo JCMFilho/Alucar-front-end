@@ -6,21 +6,21 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BlockUIModule } from 'ng-block-ui';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     BlockUIModule.forRoot({
-      message: 'Carregando...'
+      message: 'Carregando...',
     }),
+    MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
