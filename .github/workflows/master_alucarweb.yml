@@ -51,6 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'alucarweb'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C1C2481DDE0E42BC8103D3A45949B9A2 }}
-          package: .
+          package: ./dist/alucar-front
