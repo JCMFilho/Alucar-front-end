@@ -1,0 +1,16 @@
+<h1>{{titulo}}</h1>
+<mat-divider></mat-divider>
+<div style="margin-top: 30px;margin-left:30px;font-size:18px">
+
+  {{descricao}}
+</div>
+
+<div style="display: flex; justify-content: end;margin-top: 20px;">
+  <button mat-raised-button color="green" (click)="dialogRef.close(true)">
+    Confirmar
+  </button>
+
+  <button mat-raised-button (click)="dialogRef.close(false)" style="margin-left:10px">
+    Cancelar
+  </button>
+</div>

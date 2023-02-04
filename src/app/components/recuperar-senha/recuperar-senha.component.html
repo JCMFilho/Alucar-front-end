@@ -1,0 +1,49 @@
+<div class="loginform">
+  <div style="display: flex;">
+    <mat-card class="login-card">
+      <mat-card-title-group style="display: flex;justify-content: center;width: 100%">
+        <mat-card-title>Recupere sua senha</mat-card-title>
+      </mat-card-title-group>
+      <mat-card-content style="display: flex; flex-direction: column; align-items: center;margin-top:20px">
+
+        <mat-form-field appearance="outline" *ngIf="!editPassword">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="text" [(ngModel)]="filtro.email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="!hide && !editPassword">
+          <mat-label>Token</mat-label>
+          <input matInput type="text" [(ngModel)]="filtro.token">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="editPassword">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hideSenha ? 'password' : 'text'" [(ngModel)]="senha">
+          <button mat-icon-button matSuffix (click)="hideSenha = !hideSenha" [attr.aria-label]="'Esconder senha'"
+            [attr.aria-pressed]="hideSenha">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="editPassword">
+          <mat-label>Confirme sua senha</mat-label>
+          <input matInput [type]="hideConfirmarSenha ? 'password' : 'text'" [(ngModel)]="confirmarSenha">
+          <button mat-icon-button matSuffix (click)="hideConfirmarSenha = !hideConfirmarSenha"
+            [attr.aria-label]="'Esconder senha'" [attr.aria-pressed]="hideConfirmarSenha">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-raised-button (click)="gerarToken()" *ngIf="hide && !editPassword">Gerar Token</button>
+
+
+        <button mat-raised-button (click)="validarToken()" *ngIf="!hide && !editPassword">Validar Token</button>
+
+
+        <button mat-raised-button (click)="resetarSenha()" *ngIf="editPassword">Atualizar senha</button>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

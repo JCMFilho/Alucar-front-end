@@ -1,0 +1,26 @@
+.card {
+  width: 49%;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.card-full {
+  width: 100%;
+  background-color: white;
+}
+
+.bold {
+  font-weight: bold;
+  margin-top: -15px;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0px !important;
+}

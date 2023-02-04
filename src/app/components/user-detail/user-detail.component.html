@@ -1,0 +1,97 @@
+<div style="display: flex">
+  <mat-card class="card-info">
+    <mat-card-header>
+      <mat-card-title>Informações pessoais</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Nome</mat-label>
+          <input matInput required [(ngModel)]="usu.name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Telefone</mat-label>
+          <input matInput mask="(00) 00000-0000||(00) 0000-0000" required [(ngModel)]="usu.phone">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>CPF</mat-label>
+          <input matInput required mask="000.000.000-00" [(ngModel)]="usu.cpf">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input matInput disabled [(ngModel)]="usu.email">
+        </mat-form-field>
+      </p>
+      <p style="display: flex;justify-content: center;">
+        <button mat-raised-button color="green" (click)="atualizarInfo()">Atualizar</button>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-info">
+    <mat-card-header>
+      <mat-card-title>Meu endereço</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>CEP</mat-label>
+          <input matInput mask="00000-000" [(ngModel)]="endereco.cep">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Endereço</mat-label>
+          <input matInput [(ngModel)]="endereco.logradouro">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Cidade</mat-label>
+          <input matInput [(ngModel)]="endereco.cidade">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Estado</mat-label>
+          <input matInput [(ngModel)]="endereco.estado">
+        </mat-form-field>
+      </p>
+      <p style="display: flex;justify-content: center;">
+        <button mat-raised-button color="green" (click)="atualizarEndereco()">Atualizar</button>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-info" style="margin-right: 25px;">
+    <mat-card-header>
+      <mat-card-title>Atendimento</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Telefone</mat-label>
+          <input matInput [(ngModel)]="telefone" disabled style="color: black;">
+          <mat-icon matPrefix>phone</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="email" disabled style="color: black;">
+          <mat-icon matPrefix>email</mat-icon>
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

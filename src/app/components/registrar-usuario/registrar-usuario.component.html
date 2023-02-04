@@ -1,0 +1,45 @@
+<div class="loginform">
+  <div style="display: flex;">
+    <mat-card class="login-card">
+      <mat-card-title-group style="display: flex;justify-content: center;width: 100%">
+        <mat-card-title>Forneça seus dados para o cadastro
+        </mat-card-title>
+      </mat-card-title-group>
+      <mat-card-content style="display: flex; flex-direction: column; align-items: center;margin-top:20px">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nome</mat-label>
+          <input matInput type="text" required [(ngModel)]="usuario.name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" required [(ngModel)]="usuario.email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CPF</mat-label>
+          <input matInput type="text" mask="000.000.000-00" required [(ngModel)]="usuario.cpf">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Telefone</mat-label>
+          <input matInput type="text" required mask="(00) 00000-0000||(00) 0000-0000" [(ngModel)]="usuario.phone">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput required [type]="hide ? 'password' : 'text'" [(ngModel)]="usuario.password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Esconder senha'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-raised-button color="green" (click)="registrar()">Cadastrar</button>
+
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

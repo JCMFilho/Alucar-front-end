@@ -1,0 +1,21 @@
+.loginform{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.login-card {
+  min-width: 400px;
+  margin-bottom: 8px;
+  margin-top: 30%;
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 300px;
+}
+
+.text {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+

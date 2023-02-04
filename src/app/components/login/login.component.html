@@ -1,0 +1,55 @@
+<div class="loginform">
+  <div style="display: flex;">
+    <mat-card class="login-card">
+      <mat-card-title-group style="display: flex;justify-content: center;width: 100%">
+        <mat-card-title>Alucar aluguel de carros</mat-card-title>
+      </mat-card-title-group>
+      <mat-card-content style="display: flex; flex-direction: column; align-items: center;margin-top:20px">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Usuário</mat-label>
+          <input matInput type="text" [(ngModel)]="usuario.login">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="usuario.senha">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Esconder senha'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-raised-button (click)="login()">Entrar</button>
+        <div class="container">
+          <div class="line">
+            <mat-divider></mat-divider>
+          </div>
+          <div class="text mat-typography">Ou</div>
+          <div class="line">
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+        <div style="display: flex;align-items:center">
+          <button mat-icon-button (click)="signInWithMicrosoft()" title="Login com microsoft">
+            <img src="../../../assets/microsoft-logo.png" style="width: 30px;">
+          </button>
+
+          <asl-google-signin-button type='icon' size='medium' style="margin-top: 10px;height:40px"
+            title="Login com google">
+          </asl-google-signin-button>
+
+
+          <!-- <button mat-icon-button>
+            <img src="../../../assets/linkedin-logo.png" style="width: 40px;">
+          </button> -->
+        </div>
+
+        <mat-divider class="divider"></mat-divider>
+
+        <a href="/registrar"> Ainda não sou cliente</a>
+        <a href="/recuperar-senha">Esqueci minha senha</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

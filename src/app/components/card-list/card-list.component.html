@@ -1,0 +1,17 @@
+<div *ngFor="let vehicle of vehicles" style="display: flex;float: left">
+  <mat-card class="vehicle-card" (click)="openModal(vehicle.id)">
+    <mat-card-header>
+      <mat-card-title>{{vehicle.nome}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="vehicle.imagem | safe" style="height: 200px;width:300px" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        Cambio {{vehicle.cambio}}
+      </p>
+      <p>
+        Valor da diária R${{vehicle.diaria}}
+      </p>
+      <p>Localização: {{vehicle.cidade}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

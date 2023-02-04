@@ -1,37 +1,55 @@
 <mat-toolbar color="#073763">
   <div style="width: 100%; display:flex; align-items: center;">
-  <div style="width: 30%;">
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>dialpad</mat-icon>
-        <span>Não sei</span>
+    <div style="width: 35%;">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
       </button>
-      <button mat-menu-item disabled>
-        <mat-icon>voicemail</mat-icon>
-        <span>Sei menos ainda</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>notifications_off</mat-icon>
-        <span>Socorro</span>
-      </button>
-    </mat-menu>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Não sei</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Sei menos ainda</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Socorro</span>
+        </button>
+      </mat-menu>
 
-    <span style="font-size: 14px;">Alucar Aluguel de Carros</span>
-  </div>
-  <div style="width: 40%;">
-    <mat-form-field style="width: 100%; font-size:14px">
-      <mat-icon matPrefix style="margin-bottom: -7px;">search</mat-icon>
-      <input matInput type="search"  placeholder="Digite a cidade de retirada" class="search-input">
-  </mat-form-field>
-  </div>
-    <span class="loginbutton">
+      <span style="font-size: 14px; cursor:pointer" routerLink="home">Alucar Aluguel de Carros</span>
+    </div>
+    <div style="width: 30%;">
+      <mat-form-field style="width: 100%; font-size:14px">
+        <mat-icon matPrefix style="margin-bottom: -7px;">search</mat-icon>
+        <input matInput type="search" placeholder="Digite a cidade de retirada" class="search-input">
+      </mat-form-field>
+    </div>
+    <span class="loginbutton" routerLink="/login" *ngIf="userName == null || userName === ''">
       <button mat-button>
         <mat-icon>face</mat-icon>
         Faça login ou cadastre-se
       </button>
+    </span>
+
+    <span class="loginbutton" *ngIf="userName !== null && userName !== ''">
+      <button mat-icon-button [matMenuTriggerFor]="menuOptions">
+        <mat-icon>face</mat-icon>
+        {{userName}}
+      </button>
+
+      <mat-menu #menuOptions="matMenu">
+        <button mat-menu-item (click)="showProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Meu perfil</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout </mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
     </span>
   </div>
 

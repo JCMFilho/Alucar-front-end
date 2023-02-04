@@ -1,0 +1,77 @@
+<h1>Veículos da alucar</h1>
+<div class="container">
+
+  <p>
+    <mat-icon title="Filtros">filter_alt</mat-icon>
+    <mat-form-field appearance="outline" style="margin-left: 20px;">
+      <mat-label>Nome do veículo</mat-label>
+      <input matInput type="text" [(ngModel)]="filtro.nome">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-left: 20px;">
+      <mat-label>Cidade</mat-label>
+      <input matInput type="text" [(ngModel)]="filtro.cidade">
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-left: 20px;margin-right:20px">
+      <mat-label>Fabricante</mat-label>
+      <input matInput type="text" [(ngModel)]="filtro.fabricante">
+
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="searchVehicles()">
+      <mat-icon>search</mat-icon> Pesquisar
+    </button>
+  </p>
+
+</div>
+
+<div class="container" style="width: 94%;">
+  <button mat-raised-button color="warn" (click)="openModal(null)"> Adicionar Veículo</button>
+</div>
+
+<div class="mat-elevation-z8" style="width: 94%;margin-left:3%">
+  <table mat-table [dataSource]="listaVeiculos" style="width: 100%">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome veículo </th>
+      <td mat-cell *matCellDef="let veiculo"> {{veiculo.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fabricante">
+      <th mat-header-cell *matHeaderCellDef> Fabricante </th>
+      <td mat-cell *matCellDef="let veiculo"> {{veiculo.fabricante}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="cidade">
+      <th mat-header-cell *matHeaderCellDef> Cidade </th>
+      <td mat-cell *matCellDef="let veiculo"> {{veiculo.cidade}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> Data de Cadastro </th>
+      <td mat-cell *matCellDef="let veiculo"> {{veiculo.data}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="option">
+      <th mat-header-cell *matHeaderCellDef> Opções </th>
+      <td mat-cell *matCellDef="let veiculo">
+        <button mat-icon-button title="Editar Veículo" (click)="openModal(veiculo.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button title="Excluir Veículo" (click)="excluirVeiculo(veiculo.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="20" showFirstLastButtons>
+  </mat-paginator>
+</div>

@@ -1,0 +1,11 @@
+.vehicle-card {
+  max-width: 300px;
+  margin-left: 50px;
+  margin-top: 30px;
+  min-height: 320px;
+  cursor: pointer;
+}
+
+.mat-card:hover {
+  background-color: lightblue;
+}

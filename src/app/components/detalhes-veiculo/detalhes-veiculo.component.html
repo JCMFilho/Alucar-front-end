@@ -1,0 +1,94 @@
+<mat-card class="card-full">
+  <mat-card-content style="display: flex;align-items:center; justify-content:center">
+    <img [src]="vehicle.imagem" style="width: 50%;">
+  </mat-card-content>
+</mat-card>
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{vehicle.fabricante}} - {{vehicle.nome}}</mat-card-title>
+    </mat-card-header>
+
+    <div style="display: flex;">
+      <span style="width: 49%;">
+        <p>Cidade</p>
+        <p class="bold">{{vehicle.cidade}}</p>
+        <p>KM</p>
+        <p class="bold">{{vehicle.km}}</p>
+        <p>Carroceria</p>
+        <p class="bold">{{vehicle.carroceria}}</p>
+        <p>Final da placa</p>
+        <p class="bold">{{vehicle.finalPlaca}}</p>
+      </span>
+      <span style="width: 49%;">
+        <p>Ano</p>
+        <p class="bold">{{vehicle.ano}}</p>
+        <p>Câmbio</p>
+        <p class="bold">{{vehicle.cambio}}</p>
+        <p>Combustível</p>
+        <p class="bold">{{vehicle.combustivel}}</p>
+        <p>Cor</p>
+        <p class="bold">{{vehicle.cor}}</p>
+      </span>
+    </div>
+
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Alugar</mat-card-title>
+    </mat-card-header>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Informe o dia de
+        retirada</mat-label>
+      <input matInput [matDatepicker]="picker1" placeholder="Informe o dia de retirada" name="dataInicio"
+        [(ngModel)]="aluguel.dataInicio" (dateChange)="calculaValorTotal()">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Informe o dia de devolução</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Informe o dia de devolução" name="dataFim"
+        [(ngModel)]="aluguel.dataFim" (dateChange)="calculaValorTotal()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div style="width: 100%;display: grid;grid-template-columns: 50% 50%;margin-top:20px">
+      <span>Valor diário:</span>
+      <span style="color: rgb(57, 177, 57);">{{vehicle.diaria | currency:'BRL':'symbol':'1.2-2'}}</span>
+
+      <span style="margin-top: 20px;">Valor total:</span>
+      <span style="margin-top: 20px;color: rgb(57, 177, 57);">{{aluguel.valorTotal |
+        currency:'BRL':'symbol':'1.2-2'}}</span>
+    </div>
+    <div style="width: 100%;display:flex;margin-top:20px;justify-content: center;">
+      <button mat-raised-button color="green" (click)="agendar()">
+        Agendar aluguel
+      </button>
+    </div>
+  </mat-card>
+</div>
+<mat-card class="card-full" style="margin-top: 20px;">
+  <mat-card-header>
+    <mat-card-title>Itens do veículo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="bold" style="margin-top:10px">
+
+    <div style="width: 100%;display: grid;grid-template-columns: 25% 25% 25% 25%;margin-top:20px">
+
+      <span style="margin-top:10px" *ngFor="let item of vehicle.itemVeiculos">
+        {{item.descricao}}
+      </span>
+
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<!-- <mat-card class="card-full" style="margin-top: 20px;">
+  <mat-card-header>
+    <mat-card-title>Avaliações</mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="margin-top:10px">
+
+  </mat-card-content>
+</mat-card> -->

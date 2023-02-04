@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: 90%;
+  margin-left: 3%;
+  margin-right: 4%;
+  margin-top:20px;
+}
+
+.preview {
+  max-width: 200px;
+  margin-left: 20%;
+}
