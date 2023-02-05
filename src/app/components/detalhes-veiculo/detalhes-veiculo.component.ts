@@ -32,7 +32,6 @@ export class DetalhesVeiculoComponent implements OnInit {
       this.aluguel.dataInicio,
       this.aluguel.dataFim
     );
-    console.log(days);
     this.aluguel.valorTotal = this.vehicle.diaria * (days + 1);
   }
   calculateDateDifference(date1: Date, date2: Date): number {

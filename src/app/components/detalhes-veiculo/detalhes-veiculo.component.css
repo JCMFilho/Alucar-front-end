@@ -14,11 +14,24 @@
   margin-top: -15px;
 }
 
-.container {
+.containerCards {
   display: flex;
   width: 100%;
   justify-content: space-between;
   padding: 0px;
+}
+
+
+@media (max-width: 700px) {
+  .containerCards {
+    display: grid;
+    justify-content: unset;
+  }
+
+  .card {
+    width: 100%;
+  }
+
 }
 
 .mat-form-field-appearance-outline .mat-form-field-wrapper {
