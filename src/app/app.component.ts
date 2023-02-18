@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   currentUrl = '';
   constructor(
     private router: Router,
-    private authService: AuthService,
+    public authService: AuthService,
     private socialAuthService: SocialAuthService
   ) {}
   ngOnInit(): void {

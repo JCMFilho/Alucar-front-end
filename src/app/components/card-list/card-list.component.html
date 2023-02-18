@@ -9,7 +9,7 @@
         Cambio {{vehicle.cambio}}
       </p>
       <p>
-        Valor da diária R${{vehicle.diaria}}
+        Valor da diária {{vehicle.diaria | currency:'BRL':'symbol':'1.2-2'}}
       </p>
       <p>Localização: {{vehicle.cidade}}</p>
     </mat-card-content>

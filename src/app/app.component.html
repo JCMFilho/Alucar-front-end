@@ -5,19 +5,28 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Não sei</span>
+        <a mat-menu-item routerLink="/home" routerLinkActive="active-link">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </a>
+        <a mat-menu-item routerLink="/login" routerLinkActive="active-link" *ngIf="userName == null || userName === ''">
+          <mat-icon>face</mat-icon>
+          <span>Login</span>
+        </a>
+        <button mat-menu-item (click)="showProfile()" *ngIf="userName !== null && userName !== ''">
+          <mat-icon>person</mat-icon>
+          <span>Meu perfil</span>
         </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Sei menos ainda</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Socorro</span>
-        </button>
+        <a mat-menu-item routerLink="/veiculos" routerLinkActive="active-link" *ngIf="authService.isAdmin()">
+          <mat-icon>directions_car</mat-icon>
+          <span>Gerenciar veículos</span>
+        </a>
+        <a mat-menu-item routerLink="/home" routerLinkActive="active-link" *ngIf="!authService.isAdmin()">
+          <mat-icon>directions_car</mat-icon>
+          <span>Meus aluguéis</span>
+        </a>
       </mat-menu>
+
 
       <span style="font-size: 14px; cursor:pointer" routerLink="home">Alucar Aluguel de Carros</span>
     </div>
