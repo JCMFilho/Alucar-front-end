@@ -21,7 +21,8 @@
           <mat-icon>directions_car</mat-icon>
           <span>Gerenciar veículos</span>
         </a>
-        <a mat-menu-item routerLink="/home" routerLinkActive="active-link" *ngIf="!authService.isAdmin()">
+        <a mat-menu-item routerLink="/home" routerLinkActive="active-link"
+          *ngIf="userName !== null && !authService.isAdmin()">
           <mat-icon>directions_car</mat-icon>
           <span>Meus aluguéis</span>
         </a>
