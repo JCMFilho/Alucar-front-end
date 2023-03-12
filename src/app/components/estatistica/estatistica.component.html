@@ -1,0 +1,30 @@
+<div class="container-div">
+  <mat-card class="estatistica-card">
+    <mat-card-header>
+      <mat-card-title>Carro mais alugado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-numeros"><br>
+      {{estatisticaVeiculo.nome}} - {{estatisticaVeiculo.fabricante}} <br><br>
+      Quantidade de Aluguéis <br><br>
+      <span style="color: green;font-size:50px">{{estatisticaVeiculo.quantidade}}</span>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="estatistica-card">
+    <mat-card-header style="height: 10%;">
+      <mat-card-title>Total de carros alugados</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="total-veiculos">
+      {{totalAlugueis}}
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="estatistica-card">
+    <mat-card-header>
+      <mat-card-title>Aluguéis por estado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <google-chart #chart [type]="typeChart" [data]="data" [options]="options">
+      </google-chart>
+    </mat-card-content>
+  </mat-card>
+
+</div>

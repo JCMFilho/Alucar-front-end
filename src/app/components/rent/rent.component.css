@@ -1,0 +1,23 @@
+.containerCards {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+.card {
+  width: 49%;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.card-full {
+  width: 98.6%;
+  background-color: white;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.align {
+  margin-top: 4px;
+}

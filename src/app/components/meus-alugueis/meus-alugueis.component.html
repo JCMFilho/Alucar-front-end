@@ -1,0 +1,41 @@
+<h1><b>Meus alugueis</b></h1>
+
+<div class="container-card">
+  <mat-card class="aluguel-card" *ngFor="let aluguel of alugueis">
+    <mat-card-header>
+      <mat-card-title>{{aluguel.fabricanteVeiculo}} - {{aluguel.nomeVeiculo}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div style="display: grid;grid-template-columns: 40% 60%;margin-top:20px">
+
+        <img mat-card-image [src]="aluguel.imagemVeiculo | safe" class="imagem">
+
+        <span class="info-alugel">
+          <mat-card class="card-info">
+
+            <mat-card-content>
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Dia da Retirada</mat-label>
+                <input matInput placeholder="Dia da Retirada" readonly="true" name="dataInicio"
+                  [(ngModel)]="aluguel.dataInicio">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Dia da Devolução</mat-label>
+                <input matInput readonly="true" placeholder="Dia da Devolução" name="dataFim"
+                  [(ngModel)]="aluguel.dataFim">
+              </mat-form-field>
+              <span class="status">
+                <span style="padding-top: 10px;">Status: {{aluguel.status | status}}</span>
+                <button mat-raised-button color="red" *ngIf="aluguel.status == 'EM_ANDAMENTO'"
+                  (click)="cancelarAluguel(aluguel)" style="margin-left:10px;">
+                  Cancelar
+                </button>
+              </span>
+            </mat-card-content>
+          </mat-card>
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

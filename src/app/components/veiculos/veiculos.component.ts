@@ -6,7 +6,6 @@ import { Vehicle } from 'src/app/model/vehicle.model';
 import { VehicleService } from 'src/app/service/vehicle.service';
 import Swal from 'sweetalert2';
 import { AdicionarEditarVeiculoComponent } from '../adicionar-editar-veiculo/adicionar-editar-veiculo.component';
-import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { Alert } from '../util/alert';
 
 @Component({

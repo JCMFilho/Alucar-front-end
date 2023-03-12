@@ -21,7 +21,11 @@
           <mat-icon>directions_car</mat-icon>
           <span>Gerenciar veículos</span>
         </a>
-        <a mat-menu-item routerLink="/home" routerLinkActive="active-link"
+        <a mat-menu-item routerLink="/gerenciar-alugueis" routerLinkActive="active-link" *ngIf="authService.isAdmin()">
+          <mat-icon>reorder</mat-icon>
+          <span>Gerenciar Aluguéis</span>
+        </a>
+        <a mat-menu-item routerLink="/meus-alugueis" routerLinkActive="active-link"
           *ngIf="userName !== null && !authService.isAdmin()">
           <mat-icon>directions_car</mat-icon>
           <span>Meus aluguéis</span>
@@ -34,7 +38,8 @@
     <div style="width: 30%;">
       <mat-form-field style="width: 100%; font-size:14px">
         <mat-icon matPrefix style="margin-bottom: -7px;">search</mat-icon>
-        <input matInput type="search" placeholder="Digite a cidade de retirada" class="search-input">
+        <input matInput type="search" placeholder="Digite a cidade de retirada" class="search-input"
+          (keydown.enter)="pesquisar($event)" [(ngModel)]="pesquisa">
       </mat-form-field>
     </div>
     <span class="loginbutton" routerLink="/login" *ngIf="userName == null || userName === ''">

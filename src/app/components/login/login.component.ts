@@ -67,6 +67,7 @@ export class LoginComponent implements OnInit {
         this.userService
           .searchUserByEmail(this.usuario.login)
           .subscribe((response) => {
+            localStorage.setItem('id', response.id);
             localStorage.setItem('role', response.roles[0].name);
             localStorage.setItem('userEmail', this.usuario.login);
             localStorage.setItem('userName', response.name);

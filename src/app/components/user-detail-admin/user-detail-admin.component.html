@@ -1,27 +1,4 @@
-<div style="display: flex">
-  <mat-card class="card-info">
-    <mat-card-header>
-      <mat-card-title>Informações da Loja</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        <a [routerLink]="['/estatistica']">
-          Estatísticas da loja
-        </a>
-      </p>
-      <p>
-        <a [routerLink]="['/estatistica']">
-          Modelos mais alugados
-        </a>
-      </p>
-      <p>
-        <a [routerLink]="['/estatistica']">
-          Novos clientes
-        </a>
-      </p>
-    </mat-card-content>
-  </mat-card>
-
+<div class="container-div">
   <mat-card class="card-info">
     <mat-card-header>
       <mat-card-title>Informações gerais</mat-card-title>
@@ -33,15 +10,19 @@
         </a>
       </p>
       <p>
-        <a routerLink="/estatistica">
+        <a routerLink="/gerenciar-alugueis">
           Gerenciar Alugueis
         </a>
       </p>
-
+      <p>
+        <a [routerLink]="['/estatistica']">
+          Estatísticas da loja
+        </a>
+      </p>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="card-info">
+  <mat-card class="card-info" style="margin-right:20px">
     <mat-card-header>
       <mat-card-title>Atendimento</mat-card-title>
     </mat-card-header>

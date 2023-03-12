@@ -1,0 +1,87 @@
+<h1><b>Aluguéis</b></h1>
+
+<div class="container">
+
+  <p style="align-items: center;">
+
+    <mat-icon title="Filtros">filter_alt</mat-icon>
+    <mat-form-field appearance="outline" style="margin-left: 20px;min-width:150px">
+      <mat-label>Data inicial</mat-label>
+      <input matInput [matDatepicker]="picker1" placeholder="Data inicial" name="dataInicial"
+        [(ngModel)]="filtro.dataInicial">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="margin-left: 20px;min-width:150px">
+      <mat-label>Data final</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Data final" name="dataFinal" [(ngModel)]="filtro.dataFinal">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-left: 20px;min-width:150px">
+      <mat-label>Nome do Cliente</mat-label>
+      <input matInput type="text" [(ngModel)]="filtro.nome">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="buscarAlugueis()" style="margin-left: 20px;">
+      <mat-icon>search</mat-icon> Pesquisar
+    </button>
+  </p>
+
+</div>
+<div class="mat-elevation-z8" style="width: 94%;margin-left:3%">
+  <table mat-table [dataSource]="listaAlugueis" style="width: 100%">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="veiculo">
+      <th mat-header-cell *matHeaderCellDef> Veículo alugado </th>
+      <td mat-cell [style]="aluguel.status == 'EM_ANDAMENTO'? 'background-color:aliceblue' : ''"
+        *matCellDef="let aluguel"> {{aluguel.fabricanteVeiculo}} - {{aluguel.nomeVeiculo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef> Cliente </th>
+      <td mat-cell [style]="aluguel.status == 'EM_ANDAMENTO'? 'background-color:aliceblue' : ''"
+        *matCellDef="let aluguel"> {{aluguel.nomeCliente}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell [style]="aluguel.status == 'EM_ANDAMENTO'? 'background-color:aliceblue' : ''"
+        *matCellDef="let aluguel"> {{aluguel.status | status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dataInicio">
+      <th mat-header-cell *matHeaderCellDef> Data Início Aluguel </th>
+      <td mat-cell [style]="aluguel.status == 'EM_ANDAMENTO'? 'background-color:aliceblue' : ''"
+        *matCellDef="let aluguel"> {{aluguel.dataInicio}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dataFim">
+      <th mat-header-cell *matHeaderCellDef> Data Fim Aluguel </th>
+      <td mat-cell [style]="aluguel.status == 'EM_ANDAMENTO'? 'background-color:aliceblue' : ''"
+        *matCellDef="let aluguel"> {{aluguel.dataFim}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="option">
+      <th mat-header-cell *matHeaderCellDef> Opções </th>
+      <td mat-cell [style]="aluguel.status == 'EM_ANDAMENTO'? 'background-color:aliceblue' : ''"
+        *matCellDef="let aluguel">
+        <button mat-icon-button title="Concluir" *ngIf="aluguel.status == 'EM_ANDAMENTO'"
+          (click)="concluirAluguel(aluguel)">
+          <mat-icon style="color:rgb(16, 90, 16)">check_circle</mat-icon>
+        </button>
+        <button mat-icon-button title="Cancelar" *ngIf="aluguel.status == 'EM_ANDAMENTO'"
+          (click)="cancelarAluguel(aluguel)">
+          <mat-icon style="color:rgb(153, 19, 19)">cancel</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="20" showFirstLastButtons>
+  </mat-paginator>
+</div>

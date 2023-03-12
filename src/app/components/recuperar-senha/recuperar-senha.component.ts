@@ -31,7 +31,6 @@ export class RecuperarSenhaComponent implements OnInit {
   gerarToken(): void {
     this.service.recoverPassword(this.filtro.email).subscribe({
       next: (e) => {
-        console.log(e);
         this.token = e;
         this.hide = false;
       },

@@ -1,0 +1,20 @@
+<div style="text-align: center;">
+  <h2>Adicionar avaliação</h2>
+  <mat-star-rating [rating]="avaliacao.nota" [starCount]="starCount" [color]="starColorP"
+    (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+</div>
+<div style="margin-top:20px">
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Título da avaliação</mat-label>
+    <input matInput required [(ngModel)]="avaliacao.titulo">
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <textarea matInput rows="8" placeholder="Descrição" [(ngModel)]="avaliacao.descricaoAvaliacao" required></textarea>
+  </mat-form-field>
+</div>
+
+<div style="display: flex;justify-content:center; margin-top:20px">
+  <button mat-raised-button color="green" (click)="avaliar()">
+    Enviar avaliação
+  </button>
+</div>

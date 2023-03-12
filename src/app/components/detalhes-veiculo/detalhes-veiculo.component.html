@@ -84,11 +84,38 @@
 </mat-card>
 
 
-<!-- <mat-card class="card-full" style="margin-top: 20px;">
-  <mat-card-header>
-    <mat-card-title>Avaliações</mat-card-title>
+<mat-card class="card-full" style="margin-top: 20px;">
+  <mat-card-header style="display:flex; justify-content:space-between">
+    <mat-card-title>
+
+      <span>Avaliações</span>
+
+    </mat-card-title>
+    <button mat-raised-button style="margin-left:10px" (click)="avaliar()">
+      Avaliar
+    </button>
   </mat-card-header>
   <mat-card-content style="margin-top:10px">
+    <p *ngIf="avaliacoes.length == 0"> <b>O veículo ainda não possuí nenhuma avaliação.</b></p>
+    <mat-card class="card-full" style="margin-top: 20px;border:1px solid black" *ngFor="let avaliacao of avaliacoes">
+      <mat-card-header style="display:flex; justify-content:space-between">
+        <mat-card-title>
+
+          <p style="font-size:14px">
+            <mat-star-rating [rating]="avaliacao.nota" [starCount]="5" [disabled]="true" [color]="starColorP">
+            </mat-star-rating> | {{avaliacao.titulo}} <i>{{avaliacao.usuario}} </i>
+          </p>
+
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content style="margin-top:10px">
+        <p style="margin-left:40px;word-wrap: break-word;">
+          {{avaliacao.descricaoAvaliacao}}
+        </p>
+
+      </mat-card-content>
+    </mat-card>
 
   </mat-card-content>
-</mat-card> -->
+</mat-card>

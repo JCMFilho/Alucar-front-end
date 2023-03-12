@@ -1,0 +1,36 @@
+.estatistica-card {
+  border: 1px solid black;
+  box-shadow: 0 5px 10px -1px #8686c0 !important;
+}
+
+.card-numeros {
+  text-align: center;
+  font-size: 20px
+}
+
+.container-div {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-column-gap: 10px;
+  margin: 20px
+}
+
+.total-veiculos {
+  color: green;
+  font-size: 150px;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+@media (max-width: 900px) {
+  .container-div {
+    grid-template-columns: 100%;
+    grid-row-gap: 10px;
+  }
+
+  .total-veiculos {
+    height: 200px;
+  }
+}

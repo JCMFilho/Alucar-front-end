@@ -1,0 +1,57 @@
+h1 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+
+
+.aluguel-card {
+  margin-top: 20px;
+  width: 98%;
+  margin-left: 10px;
+}
+
+.imagem {
+  margin-left: 10px;
+}
+
+.info-alugel {
+  margin-left: 60px;
+}
+
+.container-card {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  margin-top: 10px
+}
+
+.status {
+  display: "flex";
+}
+
+.card-info {
+  border: 1px solid black;
+}
+
+@media (max-width: 620px) {
+  .status {
+    display: block;
+  }
+
+}
+
+@media (max-width: 1200px) {
+
+
+  .container-card {
+    display: block;
+  }
+
+  /*   .imagem {
+    height: 200px;
+    width: 300px;
+  } */
+
+}

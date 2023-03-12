@@ -26,6 +26,7 @@ export class AdicionarEditarVeiculoComponent implements OnInit {
     if (this.data.id != null) {
       this.title = 'Editar Veículo';
       this.service.getVehicleById(this.data.id).subscribe((vehicle) => {
+        console.log(vehicle);
         this.vehicle = vehicle;
       });
     }

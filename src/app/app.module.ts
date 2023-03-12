@@ -36,8 +36,18 @@ import { AuthService } from './service/auth.service';
 import { LoadingService } from './service/loading.service';
 import { VehicleService } from './service/vehicle.service';
 import ptBr from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, DatePipe, registerLocaleData } from '@angular/common';
 import { RecuperarSenhaComponent } from './components/recuperar-senha/recuperar-senha.component';
+import { RentComponent } from './components/rent/rent.component';
+import { MeusAlugueisComponent } from './components/meus-alugueis/meus-alugueis.component';
+import { StatusPipe } from './status.pipe';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { AvaliacaoComponent } from './components/avaliacao/avaliacao.component';
+import { GerenciarAlugueisComponent } from './components/gerenciar-alugueis/gerenciar-alugueis.component';
+import { EstatisticaComponent } from './components/estatistica/estatistica.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 registerLocaleData(ptBr);
 const jwtOpt: JwtModuleOptions = { config: { tokenGetter: getToken } };
 export const options: Partial<null | IConfig> | (() => Partial<IConfig>) = null;
@@ -53,6 +63,7 @@ export function getToken() {
     CardListComponent,
     ProgressBarComponent,
     SafePipe,
+    StatusPipe,
     UserDetailComponent,
     UserDetailAdminComponent,
     VeiculosComponent,
@@ -61,6 +72,14 @@ export function getToken() {
     RegistrarUsuarioComponent,
     DetalhesVeiculoComponent,
     RecuperarSenhaComponent,
+    RentComponent,
+    MeusAlugueisComponent,
+    StarRatingComponent,
+    AvaliacaoComponent,
+    GerenciarAlugueisComponent,
+    EstatisticaComponent,
+    ClientesComponent,
+    PesquisaComponent,
   ],
   imports: [
     FormsModule,
@@ -77,11 +96,15 @@ export function getToken() {
     MaterialModule,
     ReactiveFormsModule,
     SocialLoginModule,
+    CommonModule,
+    GoogleChartsModule,
   ],
   providers: [
     VehicleService,
     LoadingService,
     AuthService,
+    DatePipe,
+    StatusPipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorImpl,

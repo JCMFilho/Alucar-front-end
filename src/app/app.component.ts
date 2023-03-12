@@ -1,6 +1,6 @@
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationExtras, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { AuthService } from './service/auth.service';
 
@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   userName: string | null = '';
   previousUrl = '';
   currentUrl = '';
+  pesquisa = '';
   constructor(
     private router: Router,
     public authService: AuthService,
@@ -50,5 +51,14 @@ export class AppComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/cliente');
     }
+  }
+
+  public pesquisar(event: any) {
+    let navigationExtra: NavigationExtras = {
+      queryParams: {
+        pesquisa: JSON.stringify(this.pesquisa),
+      },
+    };
+    this.router.navigate(['pesquisa'], navigationExtra);
   }
 }

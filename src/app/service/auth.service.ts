@@ -67,6 +67,10 @@ export class AuthService {
     localStorage.setItem('token', jwt.access_token);
   }
 
+  recuperarUserId() {
+    return localStorage.getItem('id');
+  }
+
   isAdmin(): boolean {
     return localStorage.getItem('role') === 'ROLE_ADMIN';
   }

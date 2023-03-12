@@ -15,10 +15,20 @@ body {
   color: green;
 }
 
+.mat-raised-button.mat-red,
+.mat-flat-button.mat-red {
+  background-color: rgb(163, 22, 22);
+  color: white;
+}
+
 .mat-raised-button.mat-green,
 .mat-flat-button.mat-green {
   background-color: green;
   color: white;
+}
+
+.mat-radio-label-content {
+  display: flex !important;
 }
 
 .mat-card {

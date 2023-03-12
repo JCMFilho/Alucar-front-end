@@ -1,0 +1,77 @@
+<div class="containerCards">
+  <mat-card class="card" style="margin-left:10px">
+    <mat-card-header>
+      <mat-card-title>{{vehicle.nome}} - {{vehicle.fabricante}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="display: flex;align-items:center; justify-content:center">
+      <img [src]="vehicle.imagem" style="width: 100%;height: 300px;">
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card" style="margin-right:10px">
+    <mat-card-header>
+      <mat-card-title>Alugar</mat-card-title>
+    </mat-card-header>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Informe o dia de
+        retirada</mat-label>
+      <input matInput [matDatepicker]="picker1" disabled="true" placeholder="Informe o dia de retirada"
+        name="dataInicio" [(ngModel)]="aluguel.dataInicio" (dateChange)="calculaValorTotal()">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Informe o dia de devolução</mat-label>
+      <input matInput [matDatepicker]="picker" disabled="true" placeholder="Informe o dia de devolução" name="dataFim"
+        [(ngModel)]="aluguel.dataFim" (dateChange)="calculaValorTotal()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div style="width: 100%;display: grid;grid-template-columns: 50% 50%;margin-top:20px">
+      <span>Valor diário:</span>
+      <span style="color: rgb(57, 177, 57);">{{vehicle.diaria | currency:'BRL':'symbol':'1.2-2'}}</span>
+
+      <span style="margin-top: 20px;">Valor total:</span>
+      <span style="margin-top: 20px;color: rgb(57, 177, 57);">{{aluguel.valorTotal |
+        currency:'BRL':'symbol':'1.2-2'}}</span>
+    </div>
+    <div style="width: 100%;display:flex;margin-top:20px;justify-content: center;">
+      <button mat-raised-button color="green" (click)="agendar()">
+        Agendar aluguel
+      </button>
+    </div>
+  </mat-card>
+</div>
+
+<mat-card class="card-full">
+  <mat-card-header>
+    <mat-card-title>Meios de pagamento</mat-card-title>
+  </mat-card-header>
+  <mat-tab-group>
+    <mat-tab label="Pagamento na loja">
+      <div style="margin-top:20px;height: 34px;">
+        <mat-radio-group aria-label="Selecione um meio de pagamento" [(ngModel)]="aluguel.meioPagamento">
+          <mat-radio-button value="1">
+            <mat-icon>credit_card</mat-icon>
+            <b class="align">Cartão de crédito</b>
+          </mat-radio-button>
+          <mat-radio-button value="2" style="margin-left:10px">
+            <mat-icon>credit_card</mat-icon>
+            <b class="align">Cartão de débito</b>
+          </mat-radio-button>
+          <mat-radio-button value="3" style="margin-left:10px">
+            <mat-icon> attach_money</mat-icon>
+            <b class="align">Dinheiro</b>
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </mat-tab>
+    <mat-tab label="Pagamento online">
+      <div style="margin-top: 20px;">
+        <b> Ainda não é possível realizar pagamentos online.</b>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+
+</mat-card>
